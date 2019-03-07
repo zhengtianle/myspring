@@ -1,7 +1,5 @@
 package cn.myspring.beans.factory;
 
-import cn.myspring.beans.BeanDefinition;
-
 /**
  * Created with IntelliJ IDEA.
  *
@@ -10,7 +8,6 @@ import cn.myspring.beans.BeanDefinition;
  * Description:
  */
 public interface BeanFactory {
-    BeanDefinition getBeanDefinition(String beanId);
 
     Object getBean(String beanId);
 }

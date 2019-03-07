@@ -24,57 +24,22 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Author ZhengTianle
  * Description:
  */
-public class DefaultBeanFactory implements BeanFactory {
+public class DefaultBeanFactory implements BeanFactory, BeanDefinitionRegistry{
 
-    private static final String ID_ATTRIBUTE = "id";
 
-    private static final String CLASS_ATTRIBUTE = "class";
 
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 
-    public DefaultBeanFactory(String configFile) {
-        loadBeanDefinition(configFile);
-    }
-
-    private void loadBeanDefinition(String configFile) {
-        InputStream is = null;
-        try {
-            //通过类加载器拿到指定文件的字节流
-            ClassLoader classLoader = ClassUtils.getDefaultClassLoader();
-            is = classLoader.getResourceAsStream(configFile);
-
-            //利用dom4j将字节流转换成xml进行遍历
-            SAXReader reader = new SAXReader();
-            Document document = reader.read(is);
-
-            Element root = document.getRootElement();//<beans>
-            Iterator<Element> iterator = root.elementIterator();
-            while(iterator.hasNext()) {
-                Element element = iterator.next();
-                //取<bean>中的id属性值
-                String id = element.attributeValue(ID_ATTRIBUTE);
-                //取<bean>中的class属性值
-                String beanClassName = element.attributeValue(CLASS_ATTRIBUTE);
-                BeanDefinition beanDefinition = new GenericBeanDefinition(id, beanClassName);
-                this.beanDefinitionMap.put(id, beanDefinition);
-            }
-
-        } catch (DocumentException e) {
-            throw new BeanDefinitionStoreException("IOException parsing XML document failed", e);
-        } finally {
-            if(is != null) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+    public DefaultBeanFactory() {}
 
     @Override
     public BeanDefinition getBeanDefinition(String beanId) {
         return this.beanDefinitionMap.get(beanId);
+    }
+
+    @Override
+    public void registerBeanDefinition(String beanId, BeanDefinition beanDefinition) {
+        this.beanDefinitionMap.put(beanId, beanDefinition);
     }
 
     /**

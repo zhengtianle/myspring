@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b34058ee-961e-4a4e-b12f-289d8cc9a72e" name="Default Changelist" comment="" />
+    <list default="true" id="b34058ee-961e-4a4e-b12f-289d8cc9a72e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/BeanDefinitionRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/xml/XmlBeanDefinitionReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/context/ApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/context/support/ClassPathXmlApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/context/support/FileSystemXmlApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/ClassPathResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/FileSystemResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/util/Assert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cn/myspring/AllTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cn/myspring/ApplicationContextTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cn/myspring/ResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/DefaultBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/DefaultBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cn/myspring/BeanFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cn/myspring/BeanFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/myspring/beans/factory/BeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/myspring/beans/factory/BeanFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/myspring/beans/factory/support/DefaultBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/myspring/beans/factory/support/DefaultBeanFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/cn/myspring/BeanFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/cn/myspring/BeanFactoryTest.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,120 +36,42 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3095" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="6428" />
           <entry key="xml" value="260" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3095" />
+          <entry key="JAVA" value="6428" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="260" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="19" />
+          <entry key="java" value="54" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="19" />
+          <entry key="JAVA" value="54" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/util/ClassUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/DefaultBeanFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="62" column="97" selection-start-line="62" selection-start-column="97" selection-end-line="62" selection-end-column="97" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#909#910#0" expanded="true" />
-                <element signature="e#955#956#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/GenericBeanDefinition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cn/myspring/service/PersonService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/person.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cn/myspring/BeanFactoryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanCreationException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/BeansException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -138,12 +81,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/cn/myspring/service/PersonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/BeanDefinition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanFactory.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/GenericBeanDefinition.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/myspring/util/ClassUtils.java" />
@@ -152,7 +97,22 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanDefinitionStoreException.java" />
         <option value="$PROJECT_DIR$/src/test/resources/person.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/DefaultBeanFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/BeanDefinitionRegistry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/context/ApplicationContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/FileSystemReource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/util/Assert.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/myspring/ResourceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/myspring/AllTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/myspring/ApplicationContextTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/Resource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/FileSystemResource.java" />
         <option value="$PROJECT_DIR$/src/test/java/cn/myspring/BeanFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/xml/XmlBeanDefinitionReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/core/io/ClassPathResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/context/support/ClassPathXmlApplicationContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/context/support/FileSystemXmlApplicationContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/myspring/context/support/AbstractApplicationContext.java" />
       </list>
     </option>
   </component>
@@ -176,18 +136,16 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="281" />
-    <option name="y" value="109" />
-    <option name="width" value="902" />
-    <option name="height" value="659" />
+    <option name="x" value="517" />
+    <option name="y" value="141" />
+    <option name="width" value="934" />
+    <option name="height" value="549" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,6 +213,72 @@
               <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
               <item name="myspring" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
+              <item name="factory" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
+              <item name="factory" type="462c0819:PsiDirectoryNode" />
+              <item name="xml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myspring" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -280,16 +304,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="myspring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myspring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-              <item name="myspring" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myspring" type="b2602c69:ProjectViewProjectNode" />
@@ -302,13 +316,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551886593576" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ssm" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551946237527" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LeetCodePractice" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -320,11 +336,11 @@
       <recent name="cn.myspring" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="cn.myspring.beans" />
+      <recent name="cn.myspring.context.support" />
       <recent name="cn.myspring.util" />
-      <recent name="cn.myspring.beans.factory.support" />
-      <recent name="cn.myspring.beans.factory" />
-      <recent name="cn.myspring.service" />
+      <recent name="cn.myspring.core.io" />
+      <recent name="cn.myspring.context" />
+      <recent name="cn.myspring.beans.factory.xml" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -339,7 +355,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BeanFactoryTest.testInvalidXML">
+  <component name="RunManager" selected="JUnit.AllTest">
+    <configuration name="AllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myspring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.myspring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.myspring" />
+      <option name="MAIN_CLASS_NAME" value="cn.myspring.AllTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myspring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.myspring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.myspring" />
+      <option name="MAIN_CLASS_NAME" value="cn.myspring.ApplicationContextTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BeanFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myspring" />
       <extension name="coverage">
@@ -354,7 +398,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BeanFactoryTest.testGetBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ResourceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myspring" />
       <extension name="coverage">
         <pattern>
@@ -363,14 +407,12 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cn.myspring" />
-      <option name="MAIN_CLASS_NAME" value="cn.myspring.BeanFactoryTest" />
-      <option name="METHOD_NAME" value="testGetBean" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="cn.myspring.ResourceTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BeanFactoryTest.testInvalidBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ResourceTest.testSystemPathResource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myspring" />
       <extension name="coverage">
         <pattern>
@@ -379,41 +421,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cn.myspring" />
-      <option name="MAIN_CLASS_NAME" value="cn.myspring.BeanFactoryTest" />
-      <option name="METHOD_NAME" value="testInvalidBean" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BeanFactoryTest.testInvalidXML" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="myspring" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.myspring.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.myspring" />
-      <option name="MAIN_CLASS_NAME" value="cn.myspring.BeanFactoryTest" />
-      <option name="METHOD_NAME" value="testInvalidXML" />
+      <option name="MAIN_CLASS_NAME" value="cn.myspring.ResourceTest" />
+      <option name="METHOD_NAME" value="testSystemPathResource" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.AllTest" />
+      <item itemvalue="JUnit.ResourceTest" />
+      <item itemvalue="JUnit.ResourceTest.testSystemPathResource" />
+      <item itemvalue="JUnit.ApplicationContextTest" />
       <item itemvalue="JUnit.BeanFactoryTest" />
-      <item itemvalue="JUnit.BeanFactoryTest.testGetBean" />
-      <item itemvalue="JUnit.BeanFactoryTest.testInvalidBean" />
-      <item itemvalue="JUnit.BeanFactoryTest.testInvalidXML" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BeanFactoryTest.testInvalidXML" />
-        <item itemvalue="JUnit.BeanFactoryTest.testInvalidBean" />
-        <item itemvalue="JUnit.BeanFactoryTest.testGetBean" />
+        <item itemvalue="JUnit.AllTest" />
         <item itemvalue="JUnit.BeanFactoryTest" />
+        <item itemvalue="JUnit.ApplicationContextTest" />
+        <item itemvalue="JUnit.ResourceTest" />
+        <item itemvalue="JUnit.ResourceTest.testSystemPathResource" />
       </list>
     </recent_temporary>
   </component>
@@ -429,33 +457,49 @@
       <updated>1551864459264</updated>
       <workItem from="1551864464878" duration="9205000" />
       <workItem from="1551882683620" duration="1794000" />
+      <workItem from="1551922787545" duration="10219000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BeanFactoryTest - 2019.03.06 at 18h 11m 41s.xml">
+    <history-entry file="ResourceTest - 2019.03.07 at 11h 10m 19s.xml">
+      <configuration name="ResourceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AllTest - 2019.03.07 at 11h 10m 45s.xml">
+      <configuration name="AllTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest - 2019.03.07 at 11h 38m 57s.xml">
+      <configuration name="ApplicationContextTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AllTest - 2019.03.07 at 11h 39m 06s.xml">
+      <configuration name="AllTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest - 2019.03.07 at 11h 40m 29s.xml">
+      <configuration name="ApplicationContextTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AllTest - 2019.03.07 at 11h 42m 50s.xml">
+      <configuration name="AllTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AllTest - 2019.03.07 at 11h 44m 20s.xml">
+      <configuration name="AllTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeanFactoryTest - 2019.03.07 at 11h 55m 13s.xml">
       <configuration name="BeanFactoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BeanFactoryTest_testGetBean - 2019.03.06 at 18h 50m 54s.xml">
-      <configuration name="BeanFactoryTest.testGetBean" configurationId="JUnit" />
+    <history-entry file="AllTest - 2019.03.07 at 11h 56m 02s.xml">
+      <configuration name="AllTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BeanFactoryTest_testGetBean - 2019.03.06 at 21h 16m 09s.xml">
-      <configuration name="BeanFactoryTest.testGetBean" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeanFactoryTest_testInvalidBean - 2019.03.06 at 22h 40m 12s.xml">
-      <configuration name="BeanFactoryTest.testInvalidBean" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeanFactoryTest_testInvalidXML - 2019.03.06 at 22h 47m 21s.xml">
-      <configuration name="BeanFactoryTest.testInvalidXML" configurationId="JUnit" />
+    <history-entry file="AllTest - 2019.03.07 at 12h 04m 42s.xml">
+      <configuration name="AllTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10999000" />
+    <option name="totallyTimeSpent" value="21218000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1440" height="838" extended-state="6" />
+    <frame x="0" y="22" width="1366" height="714" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2816092" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28528073" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -464,7 +508,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19632769" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18103448" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -474,7 +518,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32876712" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3275862" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,13 +568,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -542,13 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/util/ClassUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -573,6 +603,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanCreationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/BeansException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -580,9 +617,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/BeanDefinitionRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/DefaultBeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-71">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/context/ApplicationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="50" lean-forward="true" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/util/ClassUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="944">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/util/Assert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/myspring/ResourceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/myspring/ApplicationContextTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanDefinitionStoreException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="204">
           <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding>
             <element signature="e#326#327#0" expanded="true" />
@@ -591,29 +695,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/BeanCreationException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/core/io/Resource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="232">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/support/DefaultBeanFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/core/io/FileSystemResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="62" column="97" selection-start-line="62" selection-start-column="97" selection-end-line="62" selection-end-column="97" />
+        <state relative-caret-position="124">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#909#910#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/beans/factory/xml/XmlBeanDefinitionReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/cn/myspring/BeanFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="152">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/core/io/ClassPathResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="51" column="85" selection-start-line="51" selection-start-column="85" selection-end-line="51" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/myspring/AllTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/context/support/ClassPathXmlApplicationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/context/support/FileSystemXmlApplicationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/myspring/context/support/AbstractApplicationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

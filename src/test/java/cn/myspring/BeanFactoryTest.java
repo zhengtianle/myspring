@@ -5,8 +5,12 @@ import cn.myspring.beans.factory.BeanCreationException;
 import cn.myspring.beans.factory.BeanDefinitionStoreException;
 import cn.myspring.beans.factory.BeanFactory;
 import cn.myspring.beans.factory.support.DefaultBeanFactory;
+import cn.myspring.beans.factory.xml.XmlBeanDefinitionReader;
+import cn.myspring.core.io.ClassPathResource;
+import cn.myspring.core.io.Resource;
 import cn.myspring.service.PersonService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -18,12 +22,22 @@ import org.junit.Test;
  */
 public class BeanFactoryTest {
 
+    DefaultBeanFactory factory = null;
+    XmlBeanDefinitionReader reader = null;
+
+    @Before
+    public void setUp() {
+        factory = new DefaultBeanFactory();
+        reader = new XmlBeanDefinitionReader(factory);
+    }
+
     /**
      * 目标：给定文件，获取bean的定义
      */
     @Test
     public void testGetBean(){
-        BeanFactory factory = new DefaultBeanFactory("person.xml");
+        Resource resource = new ClassPathResource("person.xml");
+        reader.loadBeanDefinitions(resource);
         BeanDefinition bean = factory.getBeanDefinition("person");
 
         Assert.assertEquals("cn.myspring.service.PersonService", bean.getBeanClassName());
@@ -34,7 +48,8 @@ public class BeanFactoryTest {
 
     @Test
     public void testInvalidBean() {
-        BeanFactory factory = new DefaultBeanFactory("person.xml");
+        Resource resource = new ClassPathResource("person.xml");
+        reader.loadBeanDefinitions(resource);
         try {
             factory.getBean("invalidBean");
         } catch (BeanCreationException e) {
@@ -46,7 +61,8 @@ public class BeanFactoryTest {
     @Test
     public void testInvalidXML() {
         try{
-            new DefaultBeanFactory("xxxx.xml");
+            Resource resource = new ClassPathResource("xxx.xml");
+            reader.loadBeanDefinitions(resource);
         } catch (BeanDefinitionStoreException e) {
             return ;
         }
