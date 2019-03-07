@@ -337,7 +337,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551959910898" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551960366889" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../LeetCodePractice" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -472,7 +472,7 @@
       <updated>1551864459264</updated>
       <workItem from="1551864464878" duration="9205000" />
       <workItem from="1551882683620" duration="1794000" />
-      <workItem from="1551922787545" duration="12864000" />
+      <workItem from="1551922787545" duration="13133000" />
     </task>
     <servers />
   </component>
@@ -509,7 +509,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23863000" />
+    <option name="totallyTimeSpent" value="24132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1366" height="714" extended-state="6" />
