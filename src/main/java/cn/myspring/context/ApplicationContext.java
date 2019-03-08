@@ -1,6 +1,6 @@
 package cn.myspring.context;
 
-import cn.myspring.beans.factory.BeanFactory;
+import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,5 +9,5 @@ import cn.myspring.beans.factory.BeanFactory;
  * @Author ZhengTianle
  * Description:
  */
-public interface ApplicationContext extends BeanFactory {
+public interface ApplicationContext extends ConfigurableBeanFactory {
 }

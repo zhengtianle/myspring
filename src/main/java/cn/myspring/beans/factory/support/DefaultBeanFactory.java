@@ -2,18 +2,9 @@ package cn.myspring.beans.factory.support;
 
 import cn.myspring.beans.BeanDefinition;
 import cn.myspring.beans.factory.BeanCreationException;
-import cn.myspring.beans.factory.BeanDefinitionStoreException;
-import cn.myspring.beans.factory.BeanFactory;
+import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
 import cn.myspring.util.ClassUtils;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.IdentityHashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -24,9 +15,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Author ZhengTianle
  * Description:
  */
-public class DefaultBeanFactory implements BeanFactory, BeanDefinitionRegistry{
+public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
+        implements ConfigurableBeanFactory, BeanDefinitionRegistry{
 
-
+    private ClassLoader beanClassLoader = null;
 
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 
@@ -54,7 +46,22 @@ public class DefaultBeanFactory implements BeanFactory, BeanDefinitionRegistry{
             throw new BeanCreationException("Bean Definition does not exist");
         }
 
-        ClassLoader classLoader = ClassUtils.getDefaultClassLoader();
+        if(beanDefinition.isSingleton()) {
+            //beanDefinition如果是单例的，则从DefaultSingletonBeanRegister中获取
+            Object bean = this.getSingleton(beanId);
+            if(bean == null) {
+                //此bean之前没有单例注册过
+                bean = createBean(beanDefinition);
+                this.registerSingleton(beanId, bean);
+            }
+            return bean;
+        }
+        //beanDefinition不是单例，直接反射创建返回
+        return createBean(beanDefinition);
+    }
+
+    private Object createBean(BeanDefinition beanDefinition) {
+        ClassLoader classLoader = this.getBeanClassloader();
         String beanClassName = beanDefinition.getBeanClassName();
         try{
             //根据全类名让ClassLoader将此类的.class文件load进来
@@ -64,5 +71,15 @@ public class DefaultBeanFactory implements BeanFactory, BeanDefinitionRegistry{
         } catch (IllegalAccessException | InstantiationException | ClassNotFoundException e) {
             throw new BeanCreationException("create bean for " + beanClassName + " failed", e);
         }
+    }
+
+    @Override
+    public void setBeanClassLoader(ClassLoader beanClassLoader) {
+        this.beanClassLoader = beanClassLoader;
+    }
+
+    @Override
+    public ClassLoader getBeanClassloader() {
+        return this.beanClassLoader != null ? this.beanClassLoader : ClassUtils.getDefaultClassLoader();
     }
 }

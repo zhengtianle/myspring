@@ -38,12 +38,31 @@ public class BeanFactoryTest {
     public void testGetBean(){
         Resource resource = new ClassPathResource("person.xml");
         reader.loadBeanDefinitions(resource);
-        BeanDefinition bean = factory.getBeanDefinition("person");
+        BeanDefinition beanDefinition = factory.getBeanDefinition("person");
 
-        Assert.assertEquals("cn.myspring.service.PersonService", bean.getBeanClassName());
+        Assert.assertEquals("cn.myspring.service.PersonService", beanDefinition.getBeanClassName());
 
         PersonService person = (PersonService) factory.getBean("person");
         Assert.assertNotNull(person);
+    }
+
+    /**
+     * 测试bean的单例
+     */
+    @Test
+    public void testGetSingletonBean() {
+        Resource resource = new ClassPathResource("person.xml");
+        reader.loadBeanDefinitions(resource);
+        BeanDefinition beanDefinition = factory.getBeanDefinition("person");
+
+        Assert.assertTrue(beanDefinition.isSingleton());
+        Assert.assertFalse(beanDefinition.isPrototype());
+        Assert.assertEquals(BeanDefinition.SCOPE_DEFAULT, beanDefinition.getScope());
+        Assert.assertEquals("cn.myspring.service.PersonService", beanDefinition.getBeanClassName());
+        PersonService person = (PersonService) factory.getBean("person");
+        Assert.assertNotNull(person);
+        PersonService person1 = (PersonService) factory.getBean("person");
+        Assert.assertTrue(person.equals(person1));
     }
 
     @Test
