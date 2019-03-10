@@ -1,11 +1,11 @@
-package cn.myspring.service;
+package cn.myspring.dao;
 
 /**
  * Created with IntelliJ IDEA.
  *
- * @Time 19-3-6
+ * @Time 19-3-9
  * @Author ZhengTianle
  * Description:
  */
-public class PersonService {
+public class SexDao {
 }

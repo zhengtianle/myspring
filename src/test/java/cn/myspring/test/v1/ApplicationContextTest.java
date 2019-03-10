@@ -1,9 +1,9 @@
-package cn.myspring;
+package cn.myspring.test.v1;
 
 import cn.myspring.context.ApplicationContext;
 import cn.myspring.context.support.ClassPathXmlApplicationContext;
 import cn.myspring.context.support.FileSystemXmlApplicationContext;
-import cn.myspring.service.PersonService;
+import cn.myspring.service.v1.PersonService;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,14 +18,14 @@ public class ApplicationContextTest {
 
     @Test
     public void testGetBean() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("person.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("person-v1.xml");
         PersonService person = (PersonService) context.getBean("person");
         Assert.assertNotNull(person);
     }
 
     @Test
     public void testGetBeanFromFileSystemContext() {
-        ApplicationContext context = new FileSystemXmlApplicationContext("/home/zhengtianle/workspace/idea-workspace/myspring/src/test/resources/person.xml");
+        ApplicationContext context = new FileSystemXmlApplicationContext("src/test/resources/person-v1.xml");
         PersonService person = (PersonService) context.getBean("person");
         Assert.assertNotNull(person);
     }

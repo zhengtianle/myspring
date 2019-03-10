@@ -1,4 +1,4 @@
-package cn.myspring;
+package cn.myspring.test.v1;
 
 import cn.myspring.core.io.ClassPathResource;
 import cn.myspring.core.io.FileSystemResource;
@@ -42,12 +42,12 @@ public class ResourceTest {
 
     @Test
     public void testClassPathResource() {
-        resource = new ClassPathResource("person.xml");
+        resource = new ClassPathResource("person-v1.xml");
     }
 
     @Test
     public void testSystemPathResource() {
-        resource = new FileSystemResource("/home/zhengtianle/workspace/idea-workspace/myspring/src/test/resources/person.xml");
+        resource = new FileSystemResource("src/test/resources/person-v1.xml");
     }
 
 }

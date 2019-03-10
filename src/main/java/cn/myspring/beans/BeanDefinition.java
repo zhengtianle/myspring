@@ -1,5 +1,7 @@
 package cn.myspring.beans;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -22,4 +24,6 @@ public interface BeanDefinition {
     void setScope(String scope);
 
     String getBeanClassName();
+
+    List<PropertyValue> getPropertyValues();
 }

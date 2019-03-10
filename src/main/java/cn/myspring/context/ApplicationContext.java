@@ -9,5 +9,5 @@ import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
  * @Author ZhengTianle
  * Description:
  */
-public interface ApplicationContext extends ConfigurableBeanFactory {
+public interface    ApplicationContext extends ConfigurableBeanFactory {
 }

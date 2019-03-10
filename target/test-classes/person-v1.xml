@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-bean.xsd">
 
-    <bean id="person" class="cn.myspring.service.PersonService"></bean>
+    <bean id="person" class="cn.myspring.service.v1.PersonService"></bean>
 
     <bean id="invalidBean" class="xx.xxxx"></bean>
+
+    <bean id="prototypePerson" scope="prototype" class="cn.myspring.service.v1.PersonService"></bean>
 
 </beans>

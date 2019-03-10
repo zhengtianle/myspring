@@ -1,14 +1,13 @@
-package cn.myspring;
+package cn.myspring.test.v1;
 
 import cn.myspring.beans.BeanDefinition;
 import cn.myspring.beans.factory.BeanCreationException;
 import cn.myspring.beans.factory.BeanDefinitionStoreException;
-import cn.myspring.beans.factory.BeanFactory;
 import cn.myspring.beans.factory.support.DefaultBeanFactory;
 import cn.myspring.beans.factory.xml.XmlBeanDefinitionReader;
 import cn.myspring.core.io.ClassPathResource;
 import cn.myspring.core.io.Resource;
-import cn.myspring.service.PersonService;
+import cn.myspring.service.v1.PersonService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,38 +35,57 @@ public class BeanFactoryTest {
      */
     @Test
     public void testGetBean(){
-        Resource resource = new ClassPathResource("person.xml");
+        Resource resource = new ClassPathResource("person-v1.xml");
         reader.loadBeanDefinitions(resource);
         BeanDefinition beanDefinition = factory.getBeanDefinition("person");
 
-        Assert.assertEquals("cn.myspring.service.PersonService", beanDefinition.getBeanClassName());
+        Assert.assertEquals("cn.myspring.service.v1.PersonService", beanDefinition.getBeanClassName());
 
         PersonService person = (PersonService) factory.getBean("person");
         Assert.assertNotNull(person);
     }
 
     /**
-     * 测试bean的单例
+     * 测试bean的默认单例
      */
     @Test
     public void testGetSingletonBean() {
-        Resource resource = new ClassPathResource("person.xml");
+        Resource resource = new ClassPathResource("person-v1.xml");
         reader.loadBeanDefinitions(resource);
         BeanDefinition beanDefinition = factory.getBeanDefinition("person");
 
         Assert.assertTrue(beanDefinition.isSingleton());
         Assert.assertFalse(beanDefinition.isPrototype());
         Assert.assertEquals(BeanDefinition.SCOPE_DEFAULT, beanDefinition.getScope());
-        Assert.assertEquals("cn.myspring.service.PersonService", beanDefinition.getBeanClassName());
+        Assert.assertEquals("cn.myspring.service.v1.PersonService", beanDefinition.getBeanClassName());
         PersonService person = (PersonService) factory.getBean("person");
         Assert.assertNotNull(person);
         PersonService person1 = (PersonService) factory.getBean("person");
-        Assert.assertTrue(person.equals(person1));
+        Assert.assertEquals(person, person1);
+    }
+
+    /**
+     * 测试scope="prototype"
+     */
+    @Test
+    public void testGetPrototypeBean() {
+        Resource resource = new ClassPathResource("person-v1.xml");
+        reader.loadBeanDefinitions(resource);
+        BeanDefinition beanDefinition = factory.getBeanDefinition("prototypePerson");
+
+        Assert.assertTrue(beanDefinition.isPrototype());
+        Assert.assertFalse(beanDefinition.isSingleton());
+        Assert.assertEquals(BeanDefinition.SCOPE_PROTOTYPE, beanDefinition.getScope());
+        Assert.assertEquals("cn.myspring.service.v1.PersonService", beanDefinition.getBeanClassName());
+        PersonService person = (PersonService) factory.getBean("prototypePerson");
+        Assert.assertNotNull(person);
+        PersonService person1 = (PersonService) factory.getBean("prototypePerson");
+        Assert.assertNotEquals(person, person1);
     }
 
     @Test
     public void testInvalidBean() {
-        Resource resource = new ClassPathResource("person.xml");
+        Resource resource = new ClassPathResource("person-v1.xml");
         reader.loadBeanDefinitions(resource);
         try {
             factory.getBean("invalidBean");

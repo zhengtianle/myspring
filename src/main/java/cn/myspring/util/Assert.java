@@ -7,7 +7,7 @@ package cn.myspring.util;
  * @Author ZhengTianle
  * Description:
  */
-public class Assert {
+public abstract class Assert {
 
     public static void notNull(Object object, String exceptionMessage) {
         if(object == null) {

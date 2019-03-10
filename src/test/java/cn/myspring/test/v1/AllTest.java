@@ -1,4 +1,4 @@
-package cn.myspring;
+package cn.myspring.test.v1;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
