@@ -1,5 +1,6 @@
 package cn.myspring.test.v2;
 
+import cn.myspring.beans.TypeConverter;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -14,7 +15,10 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         ApplicationContextV2.class,
         BeanDefinitionTestV2.class,
-        BeanDefinitionValueResolverTest.class
+        BeanDefinitionValueResolverTest.class,
+        CustomBooleanEditorTest.class,
+        CustomNumberEditorTest.class,
+        TypeConverterTest.class
 })
 public class AllTestV2 {
 }

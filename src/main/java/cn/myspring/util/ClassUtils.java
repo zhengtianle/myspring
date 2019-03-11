@@ -2,14 +2,48 @@ package cn.myspring.util;
 
 import com.sun.istack.internal.Nullable;
 
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  *
  * @Time 19-3-6
  * @Author ZhengTianle
  * Description:
+ * /home/zhengtianle/workspace/maven-repository/org/springframework/spring-core/5.1.3.RELEASE/spring-core-5.1.3.RELEASE-sources.jar!/org/springframework/util/ClassUtils.java
+ * org/springframework/util/ClassUtils.java
  */
 public abstract class ClassUtils {
+
+    /**
+     * Map with primitive wrapper type as key and corresponding primitive
+     * type as value, for example: Integer.class -> int.class.
+     */
+    private static final Map<Class<?>, Class<?>> primitiveWrapperTypeMap = new IdentityHashMap<>(8);
+
+    /**
+     * Map with primitive type as key and corresponding wrapper
+     * type as value, for example: int.class -> Integer.class.
+     */
+    private static final Map<Class<?>, Class<?>> primitiveTypeToWrapperMap = new IdentityHashMap<Class<?>, Class<?>>(8);
+
+    static {
+        primitiveWrapperTypeMap.put(Boolean.class, boolean.class);
+        primitiveWrapperTypeMap.put(Byte.class, byte.class);
+        primitiveWrapperTypeMap.put(Character.class, char.class);
+        primitiveWrapperTypeMap.put(Double.class, double.class);
+        primitiveWrapperTypeMap.put(Float.class, float.class);
+        primitiveWrapperTypeMap.put(Integer.class, int.class);
+        primitiveWrapperTypeMap.put(Long.class, long.class);
+        primitiveWrapperTypeMap.put(Short.class, short.class);
+
+        for (Map.Entry<Class<?>, Class<?>> entry : primitiveWrapperTypeMap.entrySet()) {
+            primitiveTypeToWrapperMap.put(entry.getValue(), entry.getKey());
+
+        }
+    }
 
     /**
      *
@@ -22,8 +56,6 @@ public abstract class ClassUtils {
      * 3. 可以自定义ClassLoader一般覆盖findClass()方法。
      * 4. ContextClassLoader与线程相关，可以获取和设置，可以绕过双亲委托的机制。
      *
-     *
-     * 源码注释：
      * Return the default ClassLoader to use: typically the thread context
      * ClassLoader, if available; the ClassLoader that loaded the ClassUtils
      * class will be used as fallback.
@@ -60,5 +92,47 @@ public abstract class ClassUtils {
             }
         }
         return cl;
+    }
+
+    /**
+     * Check if the right-hand side type may be assigned to the left-hand side
+     * type, assuming setting by reflection. Considers primitive wrapper
+     * classes as assignable to the corresponding primitive types.
+     * @param lhsType the target type
+     * @param rhsType the value type that should be assigned to the target type
+     * @return if the target type is assignable from the value type
+     */
+    public static boolean isAssignable(Class<?> lhsType, Class<?> rhsType) {
+        Assert.notNull(lhsType, "Left-hand side type must not be null");
+        Assert.notNull(rhsType, "Right-hand side type must not be null");
+        if (lhsType.isAssignableFrom(rhsType)) {
+            return true;
+        }
+        if (lhsType.isPrimitive()) {
+            Class<?> resolvedPrimitive = primitiveWrapperTypeMap.get(rhsType);
+            if (lhsType == resolvedPrimitive) {
+                return true;
+            }
+        }
+        else {
+            Class<?> resolvedWrapper = primitiveTypeToWrapperMap.get(rhsType);
+            if (resolvedWrapper != null && lhsType.isAssignableFrom(resolvedWrapper)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Determine if the given type is assignable from the given value,
+     * assuming setting by reflection. Considers primitive wrapper classes
+     * as assignable to the corresponding primitive types.
+     * @param type the target type
+     * @param value the value that should be assigned to the type
+     * @return if the type is assignable from the value
+     */
+    public static boolean isAssignableValue(Class<?> type, Object value) {
+        Assert.notNull(type, "Type must not be null");
+        return (value != null ? isAssignable(type, value.getClass()) : !type.isPrimitive());
     }
 }

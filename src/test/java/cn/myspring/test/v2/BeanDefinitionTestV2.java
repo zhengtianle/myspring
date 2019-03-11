@@ -29,7 +29,7 @@ public class BeanDefinitionTestV2 {
         BeanDefinition beanDefinition = factory.getBeanDefinition("person");
         List<PropertyValue> propertyValueList = beanDefinition.getPropertyValues();
 
-        Assert.assertTrue(propertyValueList.size() == 2);
+        Assert.assertTrue(propertyValueList.size() == 4);
 
         PropertyValue propertyValue = this.getPropertyValue("nameDao", propertyValueList);
         Assert.assertNotNull(propertyValue);

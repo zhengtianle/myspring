@@ -2,6 +2,7 @@ package cn.myspring.beans.factory.support;
 
 import cn.myspring.beans.BeanDefinition;
 import cn.myspring.beans.PropertyValue;
+import cn.myspring.beans.SimpleTypeConverter;
 import cn.myspring.beans.factory.BeanCreationException;
 import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
 import cn.myspring.util.ClassUtils;
@@ -111,17 +112,21 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
         }
 
         BeanDefinitionValueResolver resolver = new BeanDefinitionValueResolver(this);
+        SimpleTypeConverter converter = new SimpleTypeConverter();
         try{
             for(PropertyValue property : propertyValues) {
                 String propertyName = property.getName();
                 Object originalValue = property.getValue();//RuntimeBeanReference等reference
+                //resolve成实例
                 Object resolvedValue = resolver.resolveValueIfNessary(originalValue);
                 //调用set方法
                 BeanInfo beanInfo = Introspector.getBeanInfo(bean.getClass());
                 PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();
                 for(PropertyDescriptor pd : pds) {
                     if(pd.getName().equals(propertyName)) {//找到对应的属性
-                        pd.getWriteMethod().invoke(bean, resolvedValue);//调用set方法
+                        //convert类型
+                        Object convertedVlaue = converter.convertIfNecessary(resolvedValue, pd.getPropertyType());
+                        pd.getWriteMethod().invoke(bean, convertedVlaue);//调用set方法
                         break;
                     }
                 }
