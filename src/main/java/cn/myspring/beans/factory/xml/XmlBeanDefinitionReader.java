@@ -1,17 +1,15 @@
 package cn.myspring.beans.factory.xml;
 
 import cn.myspring.beans.BeanDefinition;
+import cn.myspring.beans.ConstructorArgument;
 import cn.myspring.beans.PropertyValue;
 import cn.myspring.beans.factory.BeanDefinitionStoreException;
 import cn.myspring.beans.factory.config.RuntimeBeanReference;
 import cn.myspring.beans.factory.config.TypedStringValue;
 import cn.myspring.beans.factory.support.BeanDefinitionRegistry;
-import cn.myspring.beans.factory.support.DefaultBeanFactory;
 import cn.myspring.beans.factory.support.GenericBeanDefinition;
 import cn.myspring.core.io.Resource;
-import cn.myspring.util.ClassUtils;
 import cn.myspring.util.StringUtils;
-import jdk.internal.util.xml.impl.Input;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.dom4j.Document;
@@ -42,13 +40,17 @@ public class XmlBeanDefinitionReader {
 
     private static final String SCOPE_ATTRIBUTE = "scope";
 
-    private static final String PROPERTY_ATTRIBUTE = "property";
+    private static final String PROPERTY_ELEMENT = "property";
 
     private static final String REF_ATTRIBUTE = "ref";
 
     private static final String VALUE_ATTRIBUTE = "value";
 
     private static final String NAME_ATTRIBUTE = "name";
+
+    private static final String CONSTRUCTOR_ARG_ELEMENT = "constructor-arg";
+
+    private static final String TYPE_ATTRIBUTE = "type";
 
     private BeanDefinitionRegistry registry;
 
@@ -78,8 +80,13 @@ public class XmlBeanDefinitionReader {
                 if(element.attribute(SCOPE_ATTRIBUTE) != null) {
                     beanDefinition.setScope(element.attributeValue(SCOPE_ATTRIBUTE));
                 }
+
+                //解析property
                 parsePropertyElement(element, beanDefinition);
-                registry.registerBeanDefinition(id, beanDefinition);//用BeanDefinitionRegistry实例进行注册
+                //解析constructor-arg
+                parseConstructorArgElements(element, beanDefinition);
+                //用BeanDefinitionRegistry实例进行注册
+                registry.registerBeanDefinition(id, beanDefinition);
             }
 
         } catch (DocumentException e) {
@@ -97,6 +104,40 @@ public class XmlBeanDefinitionReader {
         }
     }
 
+
+    /**
+     * 遍历<constructor-arg>
+     */
+    private void parseConstructorArgElements(Element beanElement, BeanDefinition beanDefinition) {
+        Iterator iterator = beanElement.elementIterator(CONSTRUCTOR_ARG_ELEMENT);
+        while(iterator.hasNext()) {
+            Element element = (Element) iterator.next();
+            parseConstructorArgElement(element, beanDefinition);
+        }
+    }
+
+    /**
+     * 解析某个<constructor-arg>，解析后形成ConstructorArgument.ValueHolder保存在ConstructorArgument的list中
+     * @param element 某个<constructor-arg>
+     * @param beanDefinition 用于保存valueHolder
+     */
+    private void parseConstructorArgElement(Element element, BeanDefinition beanDefinition) {
+        /*String type = element.attributeValue(TYPE_ATTRIBUTE);
+        String name = element.attributeValue(NAME_ATTRIBUTE);*/
+
+        //将 value解析成RuntimeBeanReference或者TypedStringValue
+        Object value = parsePropertyValue(element, null);
+
+        ConstructorArgument.ValueHolder valueHolder = new ConstructorArgument.ValueHolder(value);
+        /*if(StringUtils.hasLength(type)) {
+            valueHolder.setType(type);
+        }
+        if(StringUtils.hasLength(name)) {
+            valueHolder.setName(name);
+        }*/
+        beanDefinition.getConstructorArgument().addArgumentValue(valueHolder);
+    }
+
     /**
      * 遍历beanElement下的<property>,
      * 并将其ref属性引用的实体对象创建出来保存到beanDefinition中的List<PropertyValue>中
@@ -105,7 +146,7 @@ public class XmlBeanDefinitionReader {
      * @param beanDefinition 用于保存遍历得到的ref实体对象
      */
     public void parsePropertyElement(Element beanElement, BeanDefinition beanDefinition) {
-        Iterator iterator = beanElement.elementIterator(PROPERTY_ATTRIBUTE);
+        Iterator iterator = beanElement.elementIterator(PROPERTY_ELEMENT);
         while(iterator.hasNext()) {
             Element propertyElement = (Element) iterator.next();
             String propertyName = propertyElement.attributeValue(NAME_ATTRIBUTE);
@@ -147,7 +188,7 @@ public class XmlBeanDefinitionReader {
             TypedStringValue value = new TypedStringValue(propertyElement.attributeValue(VALUE_ATTRIBUTE));
             return value;
         } else {
-            throw new RuntimeException(elementName + "must specify a ref or value");
+            throw new RuntimeException(elementName + " must specify a ref or value");
         }
 
     }

@@ -14,6 +14,7 @@ public interface BeanDefinition {
     String SCOPE_PROTOTYPE = "prototype";
     String SCOPE_DEFAULT = "";
 
+    String getId();
 
     boolean isSingleton();
 
@@ -26,4 +27,8 @@ public interface BeanDefinition {
     String getBeanClassName();
 
     List<PropertyValue> getPropertyValues();
+
+    ConstructorArgument getConstructorArgument();
+
+    boolean hasConstructorArgumentValues();
 }

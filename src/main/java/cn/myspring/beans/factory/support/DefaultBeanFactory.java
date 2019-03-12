@@ -86,6 +86,10 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
      * @return beanDefinition描述的bean对象实例（属性值均为默认值）
      */
     private Object instantiateBean(BeanDefinition beanDefinition) {
+        if(beanDefinition.hasConstructorArgumentValues()) {
+            ConstructorResolver constructorResolver = new ConstructorResolver(this);
+            return constructorResolver.autowireConstructor(beanDefinition);
+        }
         ClassLoader classLoader = this.getBeanClassloader();
         String beanClassName = beanDefinition.getBeanClassName();
         try{

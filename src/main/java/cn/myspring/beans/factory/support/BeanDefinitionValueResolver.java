@@ -1,5 +1,6 @@
 package cn.myspring.beans.factory.support;
 
+import cn.myspring.beans.factory.BeanFactory;
 import cn.myspring.beans.factory.config.RuntimeBeanReference;
 import cn.myspring.beans.factory.config.TypedStringValue;
 
@@ -9,13 +10,13 @@ import cn.myspring.beans.factory.config.TypedStringValue;
  * @Time 19-3-10
  * @Author ZhengTianle
  * Description:
- * definition到实例的解析器
+ * 使用描述类RuntimeBeanReference或者TypedStringValue 创建对应的实例对象
  */
 public class BeanDefinitionValueResolver {
 
-    private final DefaultBeanFactory beanFactory;
+    private final BeanFactory beanFactory;
 
-    public BeanDefinitionValueResolver(DefaultBeanFactory beanFactory) {
+    public BeanDefinitionValueResolver(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
 

@@ -15,6 +15,7 @@ import java.util.Map;
  * @Time 19-3-11
  * @Author ZhengTianle
  * Description:
+ * value的String值转换成整数、布尔值
  */
 public class SimpleTypeConverter implements TypeConverter {
 
@@ -22,6 +23,14 @@ public class SimpleTypeConverter implements TypeConverter {
 
     public SimpleTypeConverter() {}
 
+    /**
+     *
+     * @param value 需要被转换的值
+     * @param requiredType 需要被转换成的类型
+     * @param <T> equiredType的类型
+     * @return 被转型的value（目前可能为布尔或者整数）
+     * @throws TypeMismatchException
+     */
     @Override
     public <T> T convertIfNecessary(Object value, Class<T> requiredType) throws TypeMismatchException {
         if(ClassUtils.isAssignableValue(requiredType, value)) {

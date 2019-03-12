@@ -2,6 +2,7 @@ package cn.myspring.test;
 
 import cn.myspring.test.v1.AllTest;
 import cn.myspring.test.v2.AllTestV2;
+import cn.myspring.test.v3.AllTestV3;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -13,6 +14,10 @@ import org.junit.runners.Suite;
  * Description:
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({AllTest.class, AllTestV2.class})
+@Suite.SuiteClasses({
+        AllTest.class,
+        AllTestV2.class,
+        AllTestV3.class
+})
 public class AllTests {
 }

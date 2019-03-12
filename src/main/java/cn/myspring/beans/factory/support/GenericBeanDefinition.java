@@ -1,6 +1,7 @@
 package cn.myspring.beans.factory.support;
 
 import cn.myspring.beans.BeanDefinition;
+import cn.myspring.beans.ConstructorArgument;
 import cn.myspring.beans.PropertyValue;
 
 import java.util.ArrayList;
@@ -22,9 +23,16 @@ public class GenericBeanDefinition implements BeanDefinition {
 
     private List<PropertyValue> propertyValueList = new ArrayList<>();
 
+    private ConstructorArgument constructorArgument = new ConstructorArgument();
+
     public GenericBeanDefinition(String id, String beanClassName) {
         this.id = id;
         this.beanClassName = beanClassName;
+    }
+
+    @Override
+    public String getId() {
+        return this.id;
     }
 
     @Override
@@ -58,5 +66,15 @@ public class GenericBeanDefinition implements BeanDefinition {
     @Override
     public List<PropertyValue> getPropertyValues() {
         return this.propertyValueList;
+    }
+
+    @Override
+    public ConstructorArgument getConstructorArgument() {
+        return this.constructorArgument;
+    }
+
+    @Override
+    public boolean hasConstructorArgumentValues() {
+        return !this.constructorArgument.isEmpty();
     }
 }
