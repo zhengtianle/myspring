@@ -13,3 +13,7 @@
 ### +setter注入类图
 
 ![+setter注入类图](https://github.com/zhengtianle/myspring/raw/master/类图/+setter注入类图.png) 
+
+### +constructor注入类图
+
+![+constructor注入类图](https://github.com/zhengtianle/myspring/raw/master/类图/+constructor注入类图.png) 
