@@ -12,10 +12,21 @@ import java.util.Map;
  * @Time 19-3-6
  * @Author ZhengTianle
  * Description:
- * /home/zhengtianle/workspace/maven-repository/org/springframework/spring-core/5.1.3.RELEASE/spring-core-5.1.3.RELEASE-sources.jar!/org/springframework/util/ClassUtils.java
  * org/springframework/util/ClassUtils.java
  */
 public abstract class ClassUtils {
+
+    /** The package separator character: '.' */
+    private static final char PACKAGE_SEPARATOR = '.';
+
+    /** The path separator character: '/' */
+    private static final char PATH_SEPARATOR = '/';
+
+    /** The inner class separator character: '$' */
+    private static final char INNER_CLASS_SEPARATOR = '$';
+
+    /** The CGLIB class separator: "$$" */
+    public static final String CGLIB_CLASS_SEPARATOR = "$$";
 
     /**
      * Map with primitive wrapper type as key and corresponding primitive
@@ -134,5 +145,32 @@ public abstract class ClassUtils {
     public static boolean isAssignableValue(Class<?> type, Object value) {
         Assert.notNull(type, "Type must not be null");
         return (value != null ? isAssignable(type, value.getClass()) : !type.isPrimitive());
+    }
+
+    /**
+     * / -> .
+     */
+    public static String convertResourcePathToClassName(String resourcePath) {
+        Assert.notNull(resourcePath, "Resource path must not be null");
+        return resourcePath.replace(PATH_SEPARATOR, PACKAGE_SEPARATOR);
+    }
+
+    /**
+     * . -> /
+     */
+    public static String convertClassNameToResourcePath(String className) {
+        Assert.notNull(className, "Class name must not be null");
+        return className.replace(PACKAGE_SEPARATOR, PATH_SEPARATOR);
+    }
+
+    public static String getShortName(String className) {
+        int lastDotIndex = className.lastIndexOf(PACKAGE_SEPARATOR);
+        int nameEndIndex = className.indexOf(CGLIB_CLASS_SEPARATOR);
+        if (nameEndIndex == -1) {
+            nameEndIndex = className.length();
+        }
+        String shortName = className.substring(lastDotIndex + 1, nameEndIndex);
+        shortName = shortName.replace(INNER_CLASS_SEPARATOR, PACKAGE_SEPARATOR);
+        return shortName;
     }
 }

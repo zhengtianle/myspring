@@ -27,6 +27,11 @@ public class FileSystemResource implements Resource {
         file = new File(path);
     }
 
+    public FileSystemResource(File file) {
+        this.path = file.getPath();
+        this.file = file;
+    }
+
     /**
      *
      * @return 给定文件系统路径下对应的流
