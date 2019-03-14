@@ -12,6 +12,8 @@ import org.springframework.asm.SpringAsmInfo;
  * @Time 19-3-13
  * @Author ZhengTianle
  * Description:
+ * 获取表示类的元数据
+ * 重写了继承自ClassVisitor的visit()
  */
 public class ClassMetadataReadingVisitor extends ClassVisitor implements ClassMetadata {
 
@@ -36,14 +38,14 @@ public class ClassMetadataReadingVisitor extends ClassVisitor implements ClassMe
      * 核心方法
      * 利用ASM给上述定义的类信息赋值
      * className、isInterface、isAbstract、isFinal、superClassName、interfaces
-     * @param version
-     * @param access
-     * @param name
+     * @param access bitFiled 用来和某些定义好的常数相与，屏蔽掉某些字段，得到某些属性
+     * @param name classpath下的类名 用/分割
      * @param signature
-     * @param supername
-     * @param interfaces
+     * @param supername 继承的父类
+     * @param interfaces 实现的接口集合
      */
     public void visit(int version, int access, String name, String signature, String supername, String[] interfaces) {
+        // 用/分割->用.分割
         this.className = ClassUtils.convertResourcePathToClassName(name);
         this.isInterface = ((access & Opcodes.ACC_INTERFACE) != 0);
         this.isAbstract = ((access & Opcodes.ACC_ABSTRACT) != 0);

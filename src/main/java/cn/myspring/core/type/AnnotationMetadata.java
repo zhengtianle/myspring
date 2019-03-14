@@ -14,7 +14,7 @@ import java.util.Set;
 public interface AnnotationMetadata extends ClassMetadata{
 
     /**
-     * 得到类的所有注解类型
+     * 得到类的所有注解属性名称
      */
     Set<String> getAnnotationTypes();
 

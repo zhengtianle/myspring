@@ -2,6 +2,11 @@ package cn.myspring.util;
 
 import com.sun.istack.internal.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -109,6 +114,54 @@ public abstract class StringUtils {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     *
+     * @param str 要分割的字符串
+     * @param delimiters 分隔符
+     * @return 分隔好的字符串数组
+     */
+    public static String[] tokenizeToStringArray(String str, String delimiters) {
+        return tokenizeToStringArray(str, delimiters, true, true);
+    }
+
+    /**
+     *
+     * @param str 要分割的字符串
+     * @param delimiters 分隔符
+     * @param trimTokens 是否去除首尾空格
+     * @param ignoreEmptyTokens 是否忽略分割中的空串
+     * @return 分隔好的字符串数组
+     */
+    public static String[] tokenizeToStringArray(
+            String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
+
+        if (str == null) {
+            return null;
+        }
+        StringTokenizer st = new StringTokenizer(str, delimiters);
+        List<String> tokens = new ArrayList<String>();
+        while (st.hasMoreTokens()) {
+            String token = st.nextToken();
+            if (trimTokens) {
+                token = token.trim();
+            }
+            if (!ignoreEmptyTokens || token.length() > 0) {
+                tokens.add(token);
+            }
+        }
+        return toStringArray(tokens);
+    }
+
+    /**
+     * Collectoion<String> -> String[]
+     */
+    public static String[] toStringArray(Collection<String> collection) {
+        if (collection == null) {
+            return null;
+        }
+        return collection.toArray(new String[collection.size()]);
     }
 
 }

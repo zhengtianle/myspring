@@ -20,7 +20,9 @@ import java.io.IOException;
 public class ClassReaderTest {
 
     /**
-     * ASM：
+     * ASM：工作模式 Visitor访问者模式
+     * 如果一个对象结构比较复杂，同时结构稳定不易变化，但却需要经常在此结构上定义新的操作，那就非常合适使用访问者模式
+     * 如：需要在老师和学生（两个稳定的数据结构）中选拔科研优秀奖和劳动模范奖（两个操作）
      *  Client：new ClassWriter()   ---->    new ClassVisitor(wiriter)  ----> accept(visitor)
      *          ClassWriter
      *                      visit()
@@ -42,10 +44,11 @@ public class ClassReaderTest {
     @Test
     public void testGetClassMetaData() throws IOException {
         ClassPathResource resource = new ClassPathResource("cn/myspring/service/v4/PersonService.class");
+        //ASM提供的classreader
         ClassReader reader = new ClassReader(resource.getInputStream());
 
         ClassMetadataReadingVisitor visitor = new ClassMetadataReadingVisitor();
-
+        //reader->visitor
         reader.accept(visitor, ClassReader.SKIP_DEBUG);
 
         Assert.assertFalse(visitor.isAbstract());
@@ -65,7 +68,7 @@ public class ClassReaderTest {
         ClassReader reader = new ClassReader(resource.getInputStream());
 
         AnnotationMetadataReadingVisitor visitor = new AnnotationMetadataReadingVisitor();
-
+        //reader->visitor
         reader.accept(visitor, ClassReader.SKIP_DEBUG);
 
         String annotation = "cn.myspring.stereotype.Component";

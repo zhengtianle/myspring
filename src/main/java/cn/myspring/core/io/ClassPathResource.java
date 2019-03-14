@@ -4,7 +4,6 @@ package cn.myspring.core.io;
 import cn.myspring.beans.factory.BeanDefinitionStoreException;
 import cn.myspring.util.ClassUtils;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 

@@ -25,9 +25,15 @@ public class GenericBeanDefinition implements BeanDefinition {
 
     private ConstructorArgument constructorArgument = new ConstructorArgument();
 
+    public GenericBeanDefinition() {}
+
     public GenericBeanDefinition(String id, String beanClassName) {
         this.id = id;
         this.beanClassName = beanClassName;
+    }
+
+    public void setId(String beanId) {
+        this.id = beanId;
     }
 
     @Override
@@ -56,6 +62,10 @@ public class GenericBeanDefinition implements BeanDefinition {
         //scope设置为singleton或者为""都是单例
         this.singleton = SCOPE_SINGLETON.equals(scope) || SCOPE_DEFAULT.equals(scope);
         this.prototype = SCOPE_PROTOTYPE.equals(scope);
+    }
+
+    public void setBeanClassName(String beanClassName) {
+        this.beanClassName = beanClassName;
     }
 
     @Override

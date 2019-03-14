@@ -13,11 +13,11 @@ import org.junit.Test;
  * @Author ZhengTianle
  * Description:
  */
-public class ApplicationContextTest4 {
+public class ApplicationContextTestV4 {
 
     @Test
     public void testGetBeanProperty() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("petstore-v4.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("person-v4.xml");
         PersonService person = (PersonService)context.getBean("person");
 
         Assert.assertNotNull(person.getNameDao());

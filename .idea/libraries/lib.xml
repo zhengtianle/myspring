@@ -7,6 +7,7 @@
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/lib/spring-core-asm-3.2.18.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-core-asm-3.2.18.RELEASE.jar!/org/springframework/asm" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-asm-3.2.18.RELEASE.jar!/org" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>

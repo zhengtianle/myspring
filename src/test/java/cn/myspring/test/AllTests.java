@@ -3,6 +3,7 @@ package cn.myspring.test;
 import cn.myspring.test.v1.AllTest;
 import cn.myspring.test.v2.AllTestV2;
 import cn.myspring.test.v3.AllTestV3;
+import cn.myspring.test.v4.AllTestV4;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -17,7 +18,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         AllTest.class,
         AllTestV2.class,
-        AllTestV3.class
+        AllTestV3.class,
+        AllTestV4.class
 })
 public class AllTests {
 }
