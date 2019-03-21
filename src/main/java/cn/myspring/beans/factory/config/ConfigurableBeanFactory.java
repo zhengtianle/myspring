@@ -1,6 +1,7 @@
 package cn.myspring.beans.factory.config;
 
-import cn.myspring.beans.factory.BeanFactory;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,9 +10,13 @@ import cn.myspring.beans.factory.BeanFactory;
  * @Author ZhengTianle
  * Description:
  */
-public interface ConfigurableBeanFactory extends BeanFactory {
+public interface ConfigurableBeanFactory extends AutowireCapableBeanFactory {
 
     void setBeanClassLoader(ClassLoader beanClassLoader);
 
     ClassLoader getBeanClassloader();
+
+    void addBeanPostProcessor(BeanPostProcessor postProcessor);
+
+    List<BeanPostProcessor> getBeanPostProcessors();
 }

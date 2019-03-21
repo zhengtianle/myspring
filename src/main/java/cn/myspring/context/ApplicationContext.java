@@ -1,5 +1,6 @@
 package cn.myspring.context;
 
+import cn.myspring.beans.factory.BeanFactory;
 import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
 
 /**
@@ -9,5 +10,5 @@ import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
  * @Author ZhengTianle
  * Description:
  */
-public interface    ApplicationContext extends ConfigurableBeanFactory {
+public interface ApplicationContext extends BeanFactory {
 }

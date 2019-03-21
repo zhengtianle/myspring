@@ -4,13 +4,16 @@ import cn.myspring.beans.BeanDefinition;
 import cn.myspring.beans.PropertyValue;
 import cn.myspring.beans.SimpleTypeConverter;
 import cn.myspring.beans.factory.BeanCreationException;
+import cn.myspring.beans.factory.config.BeanPostProcessor;
 import cn.myspring.beans.factory.config.ConfigurableBeanFactory;
+import cn.myspring.beans.factory.config.DependencyDescriptor;
+import cn.myspring.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import cn.myspring.util.ClassUtils;
-import com.sun.corba.se.impl.encoding.IDLJavaSerializationInputStream;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,6 +31,10 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
     private ClassLoader beanClassLoader = null;
 
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
+
+    private List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
+
+
 
     public DefaultBeanFactory() {}
 
@@ -108,6 +115,15 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
      * @param bean <bean>元素对应的无参构造函数创建的对象
      */
     private void populateBean(BeanDefinition beanDefinition, Object bean) {
+
+        for(BeanPostProcessor processor : this.getBeanPostProcessors()){
+            if(processor instanceof InstantiationAwareBeanPostProcessor){
+                //后置属性处理器，自动注入@Autowired
+                ((InstantiationAwareBeanPostProcessor)processor).postProcessPropertyValues(bean, beanDefinition.getId());
+            }
+        }
+
+
         List<PropertyValue> propertyValues = beanDefinition.getPropertyValues();
 
         //没有<property>则不需要setter注入
@@ -148,5 +164,46 @@ public class DefaultBeanFactory extends DefaultSingletonBeanRegistry
     @Override
     public ClassLoader getBeanClassloader() {
         return this.beanClassLoader != null ? this.beanClassLoader : ClassUtils.getDefaultClassLoader();
+    }
+
+    @Override
+    public void addBeanPostProcessor(BeanPostProcessor postProcessor) {
+        this.beanPostProcessors.add(postProcessor);
+    }
+
+    @Override
+    public List<BeanPostProcessor> getBeanPostProcessors() {
+        return this.beanPostProcessors;
+    }
+
+    /**
+     * 从当前bean工厂中找出descriptor描述的依赖对象
+     */
+    @Override
+    public Object resolveDependency(DependencyDescriptor descriptor) {
+        //找到依赖对象的类型
+        Class<?> typeToMatch = descriptor.getDependencyType();
+        //从已经获取到的beanDefinition列表中查找
+        for(BeanDefinition bd : this.beanDefinitionMap.values()) {
+            //通过beanDefinition中的className（xml中的class字符串）解析Class
+            resolveBeanClass(bd);
+            Class<?> beanClass = bd.getBeanClass();
+            if(typeToMatch.isAssignableFrom(beanClass)) {
+                return this.getBean(bd.getId());
+            }
+        }
+        return null;
+    }
+
+    private void resolveBeanClass(BeanDefinition bd) {
+        if(bd.hasBeanClass()) {
+            return ;
+        } else {
+            try {
+                bd.resolveBeanClass(getBeanClassloader());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException("can't load class: "+bd.getBeanClassName());
+            }
+        }
     }
 }

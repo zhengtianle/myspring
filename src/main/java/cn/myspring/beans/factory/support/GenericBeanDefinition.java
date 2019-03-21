@@ -17,6 +17,7 @@ import java.util.List;
 public class GenericBeanDefinition implements BeanDefinition {
     private String id;
     private String beanClassName;
+    private Class<?> beanClass;
     private boolean singleton = true;
     private boolean prototype = false;
     private String scope = SCOPE_DEFAULT;
@@ -86,5 +87,28 @@ public class GenericBeanDefinition implements BeanDefinition {
     @Override
     public boolean hasConstructorArgumentValues() {
         return !this.constructorArgument.isEmpty();
+    }
+
+    /**
+     * 通过xml中的class属性获取Class
+     */
+    @Override
+    public Class<?> resolveBeanClass(ClassLoader classLoader) throws ClassNotFoundException {
+        String className = getBeanClassName();
+        if (className == null) {
+            return null;
+        }
+        this.beanClass = classLoader.loadClass(className);
+        return this.beanClass;
+    }
+
+    @Override
+    public Class<?> getBeanClass() throws IllegalStateException {
+        return this.beanClass;
+    }
+
+    @Override
+    public boolean hasBeanClass() {
+        return this.beanClass != null;
     }
 }
